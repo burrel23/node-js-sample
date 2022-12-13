@@ -7,7 +7,14 @@ jobs:
       image: ubuntu-2004:202010-01
     steps:
       - checkout
-      - run: docker build -t app .
+      - run: 
+          name: Build and Run Contener
+          command: |
+            docker image rm app \
+            docker build -t app . \
+            docker run -dp 5000:5000 app \
+            wget http://127.0.0.1:5000
+
 
 workflows:
   build:
