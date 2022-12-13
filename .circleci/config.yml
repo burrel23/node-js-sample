@@ -11,7 +11,7 @@ jobs:
           name: Build and Run Contener
           command: |
             docker build -t app . \
-            docker run -dp 5000:5000 app \
+            docker run -p 5000:5000 app \
             wget http://127.0.0.1:5000
 
 
