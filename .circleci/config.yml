@@ -1,7 +1,14 @@
+# CircleCI configuration file
 version: 2.1
+
 jobs:
+  docker_build:
+    steps:
+      - run: echo "Say goodbye to YAML!"
+
+workflows:
+  # Name of workflow
   build:
-    docker:
-      - image: node:16
-  steps:
-    - run: docker build -t app .
+    # List of jobs that will run
+    jobs:
+      - docker_build
