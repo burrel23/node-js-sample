@@ -3,7 +3,6 @@ version: 2.1
 
 jobs:
   docker_build:
-    working_directory: /node-js-sample/
     docker:
       - image: docker:17.05.0-ce-git
     steps:
