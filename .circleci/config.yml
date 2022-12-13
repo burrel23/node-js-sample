@@ -9,13 +9,18 @@ jobs:
       - checkout
       - run: 
           name: Build and Run Contener
-          command: docker build -t app .
+          command: docker build -t nodeapp .
       - run:
           name: Start conteneur
-          command: docker run -dp 5000:5000 app
+          command: docker run -dp 5000:5000 nodeapp
       - run: 
           name: Test 
           command: wget http://127.0.0.1:5000
+      - run:
+          name: Docker tag
+          command: |
+            docker login -u $username -p $password \
+            docker push nodeapp
 
 
 
