@@ -1,6 +1,7 @@
 version: 2.1
 jobs:
-  - run:
-    name: Build Docker Image
-    command: 
-      docker build -t app .
+  build:
+    docker:
+      - image: node:16
+  steps:
+    - run: docker build -t app .
