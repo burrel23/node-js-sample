@@ -9,10 +9,14 @@ jobs:
       - checkout
       - run: 
           name: Build and Run Contener
-          command: |
-            docker build -t app . \
-            docker run app \
-            wget http://127.0.0.1:5000
+          command: docker build -t app .
+      - run:
+          name: Start conteneur
+          command: docker run -dp 5000:5000 app
+      - run: 
+          name: Test 
+          command: wget http://127.0.0.1:5000
+
 
 
 workflows:
