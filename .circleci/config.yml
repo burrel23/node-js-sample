@@ -3,6 +3,8 @@ version: 2.1
 
 jobs:
   docker_build:
+    docker:
+      - image: node:16
     steps:
       - run: echo "Say goodbye to YAML!"
 
